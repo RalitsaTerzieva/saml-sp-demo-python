@@ -1,0 +1,31 @@
+{
+  "sp": {
+    "entityId": "http://localhost:5000/saml/metadata/",
+    "assertionConsumerService": {
+      "url": "http://localhost:5000/sso/acs",
+      "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+    },
+    "singleLogoutService": {
+      "url": "http://localhost:5000/sso/sls",
+      "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+    },
+    "x509cert": "",
+    "privateKey": ""
+  },
+  "idp": {
+    "entityId": "https://your-idp.example.com/metadata",
+    "singleSignOnService": {
+      "url": "https://your-idp.example.com/sso",
+      "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+    },
+    "x509cert": "-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----"
+  },
+  "security": {
+    "authnRequestsSigned": false,
+    "logoutRequestSigned": false,
+    "logoutResponseSigned": false,
+    "signMetadata": false,
+    "wantAssertionsSigned": true,
+    "wantMessagesSigned": false
+  }
+}
