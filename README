@@ -1,0 +1,26 @@
+# SAML SP Demo (Python / Flask)
+
+A minimal SAML Service Provider (SP) demo built with Flask and python3-saml (OneLogin toolkit). Use this project to learn how SAML SSO works: SP metadata → redirect to IdP → ACS (SAML response) → parse user attributes.
+
+## Features
+- SP metadata endpoint (`/sso/metadata`)
+- Login redirect (`/sso/login`)
+- Assertion Consumer Service (ACS) (`/sso/acs`) to receive SAML responses
+
+## Requirements
+- Python 3.9+
+- A SAML IdP (Okta Developer, Auth0, SSOCircle, ADFS, etc.)
+- Optionally: ngrok for local public URL exposure
+
+## Setup
+
+```bash
+git clone <repo-url>
+cd saml-sp-demo-python
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+# Generate SP certificate (optional)
+openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 \
+ -subj "/CN=localhost" \
+ -keyout saml/certs/sp_private.key -out saml/certs/sp_public.crt
