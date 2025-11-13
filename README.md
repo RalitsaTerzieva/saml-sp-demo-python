@@ -1,6 +1,7 @@
 # SAML SP Demo (Python / Flask)
 
-A minimal SAML Service Provider (SP) demo built with Flask and python3-saml (OneLogin toolkit). Use this project to learn how SAML SSO works: SP metadata → redirect to IdP → ACS (SAML response) → parse user attributes.
+A minimal SAML Service Provider (SP) demo built with Flask and python3-saml (OneLogin toolkit).  
+Use this project to learn how SAML SSO works: SP metadata → redirect to IdP → ACS (SAML response) → parse user attributes.
 
 ## Features
 - SP metadata endpoint (`/sso/metadata`)
@@ -18,8 +19,10 @@ A minimal SAML Service Provider (SP) demo built with Flask and python3-saml (One
 git clone <repo-url>
 cd saml-sp-demo-python
 python3 -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate    # macOS / Linux
+# .venv\Scripts\activate     # Windows (PowerShell)
 pip install -r requirements.txt
+
 # Generate SP certificate (optional)
 openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 \
  -subj "/CN=localhost" \
